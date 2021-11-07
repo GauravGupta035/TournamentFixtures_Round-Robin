@@ -1,38 +1,14 @@
 from tkinter import *
 from tkinter.ttk import *
 
-'''
-#Fixture generation code
 
-def arr_rotate(arr):
-    x = []
-    x.append(arr[-2])
-    for i in range(0, len(arr) - 2):
-        x.append(arr[i])
-    x.append(arr[-1])
-    return x
-def schedule(team_list):
-    l = len(team_list)
-    rotate = team_list
-    team_map={1:'DC',2:'PBKS',3:'RR',4:'KKR',5:'MI',6:'RCB',7:'SRH',8:'CSK'}
-    for i in range(l-1):
-        rotate = arr_rotate(rotate)
-        left = 0
-        right = l-1
-        print("-----Round ",i+1," Fixtures-----")
-        while(left<right):
-            print("Team ",team_map[rotate[left]]," Plays Team ",team_map[rotate[right]])
-            left+=1
-            right-=1
-l = list(map(int,input("Enter list ").split()))
-schedule(l)
-'''
 class Fixture:
     def __init__(self, master=None):
         self.master = master
+        # Creating a canvas
+        self.canvas = Canvas(self.master)
 
-        # Hard coded method for generating fixtures
-        # self.create()
+        # xxxxxxxxxxxxxxxxxxxxx ROW 1 xxxxxxxxxxxxxxxxxxxxx
 
         # ------------ ROUND 1 Fixtures ------------
         self.createFixtures(250, 10, 400, 10, "SRH", "CSK")  # 1 vs 2
@@ -46,8 +22,44 @@ class Fixture:
         self.createFixtures(750, 150, 900, 150, 'RCB', 'CSK')  # 5 vs 6
         self.createFixtures(750, 220, 900, 220, 'RCB', 'CSK')  # 7 vs 8
 
+        # ------------ ROUND 3 Fixtures ------------
+        self.createFixtures(1250, 10, 1400, 10, 'MI', 'CSK')  # 1 VS 2
+        self.createFixtures(1250, 80, 1400, 80, 'MI', 'CSK')  # 3 VS 4
+        self.createFixtures(1250, 150, 1400, 150, 'MI', 'CSK')  # 5 VS 6
+        self.createFixtures(1250, 220, 1400, 220, 'MI', 'CSK')  # 7 VS 8
+
+        # xxxxxxxxxxxxxxxxxxxxx ROW 2 xxxxxxxxxxxxxxxxxxxxx
+
+        # ------------ ROUND 4 Fixtures ------------
+        self.createFixtures(250, 360, 400, 360, 'MI', 'CSK')  # 1 VS 2
+        self.createFixtures(250, 430, 400, 430, 'MI', 'CSK')  # 3 VS 4
+        self.createFixtures(250, 500, 400, 500, 'MI', 'CSK')  # 5 VS 6
+        self.createFixtures(250, 570, 400, 570, 'MI', 'CSK')  # 7 VS 8
+
+        # ------------ ROUND 5 Fixtures ------------s
+        self.createFixtures(750, 360, 900, 360, 'MI', 'CSK')  # 1 VS 2
+        self.createFixtures(750, 430, 900, 430, 'MI', 'CSK')  # 3 VS 4
+        self.createFixtures(750, 500, 900, 500, 'MI', 'CSK')  # 5 VS 6
+        self.createFixtures(750, 570, 900, 570, 'MI', 'CSK')  # 7 VS 8
+
+        # ------------ ROUND 6 Fixtures ------------s
+        self.createFixtures(1250, 360, 1400, 360, 'MI', 'CSK')  # 1 VS 2
+        self.createFixtures(1250, 430, 1400, 430, 'MI', 'CSK')  # 3 VS 4
+        self.createFixtures(1250, 500, 1400, 500, 'MI', 'CSK')  # 5 VS 6
+        self.createFixtures(1250, 570, 1400, 570, 'MI', 'CSK')  # 7 VS 8
+
+        # xxxxxxxxxxxxxxxxxxxxx ROW 3 xxxxxxxxxxxxxxxxxxxxx
+
+        # ------------ ROUND 7 Fixtures ------------
+        self.createFixtures(750, 710, 900, 710, 'MI', 'CSK')  # 1 VS 2
+        self.createFixtures(750, 780, 900, 780, 'MI', 'CSK')  # 3 VS 4
+        self.createFixtures(750, 850, 900, 850, 'MI', 'CSK')  # 5 VS 6
+        self.createFixtures(750, 920, 900, 920, 'MI', 'CSK')  # 7 VS 8
+
+        self.canvas.pack(fill=BOTH, expand=True)
+
     def createFixtures(self, startX1, startY1, startX2, startY2, team1, team2):
-        self.canvas = Canvas(self.master)
+
         # First team text and background
         self.canvas.create_rectangle(
             startX1, startY1, startX1 + 100, startY1 + 50, outline="black", width=2, fill="white")
@@ -64,249 +76,11 @@ class Fixture:
         self.canvas.create_text(
             startX2 + 50, startY2 + 25, fill="black", text=team2, font=("Poppins", 20))
 
-        self.canvas.pack(fill=BOTH, expand=True)
-
-    # Hard code for generating fixtures
-    def create(self):
-        self.canvas = Canvas(self.master)
-
-        # ---------------- ROUND 1 Fixtures --------------
-
-        # Team No 1 vs Team No 2
-        self.canvas.create_rectangle(
-            250, 10, 350, 60, outline="black", width=2, fill="white")
-        self.canvas.create_text(300, 35, fill="black",
-                                text="SRH", font=("Poppins", 20))
-
-        self.canvas.create_text(375, 35, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            400, 10, 500, 60, outline="black", width=2, fill="white")
-        self.canvas.create_text(450, 35, fill="black",
-                                text="CSK", font=("Poppins", 20))
-
-        # Team No 3 vs Team No 4
-        self.canvas.create_rectangle(
-            250, 80, 350, 130, outline="black", width=2, fill="white")
-        self.canvas.create_text(300, 105, fill="black",
-                                text="DC", font=("Poppins", 20))
-
-        self.canvas.create_text(375, 105, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            400, 80, 500, 130, outline="black", width=2, fill="white")
-        self.canvas.create_text(450, 105, fill="black",
-                                text="RCB", font=("Poppins", 20))
-
-        # Team No 5 vs Team No 6
-        self.canvas.create_rectangle(
-            250, 150, 350, 200, outline="black", width=2, fill="white")
-        self.canvas.create_text(300, 175, fill="black",
-                                text="PBKS", font=("Poppins", 20))
-
-        self.canvas.create_text(375, 175, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            400, 150, 500, 200, outline="black", width=2, fill="white")
-        self.canvas.create_text(450, 175, fill="black",
-                                text="MI", font=("Poppins", 20))
-
-        # Team No 7 vs Team No 8
-        self.canvas.create_rectangle(
-            250, 220, 350, 270, outline="black", width=2, fill="white")
-        self.canvas.create_text(300, 245, fill="black",
-                                text="RR", font=("Poppins", 20))
-
-        self.canvas.create_text(375, 245, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            400, 220, 500, 270, outline="black", width=2, fill="white")
-        self.canvas.create_text(450, 245, fill="black",
-                                text="KKR", font=("Poppins", 20))
-
-        # ---------------- ROUND 2 Fixtures --------------
-
-        # Team No 1 vs Team No 2
-        self.canvas.create_rectangle(
-            750, 10, 850, 60, outline="black", width=2, fill="white")
-        self.canvas.create_text(800, 35, fill="black",
-                                text="RCB", font=("Poppins", 20))
-
-        self.canvas.create_text(875, 35, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            900, 10, 1000, 60, outline="black", width=2, fill="white")
-        self.canvas.create_text(950, 35, fill="black",
-                                text="CSK", font=("Poppins", 20))
-
-        # Team No 3 vs Team No 4
-        self.canvas.create_rectangle(
-            750, 80, 850, 130, outline="black", width=2, fill="white")
-        self.canvas.create_text(800, 105, fill="black",
-                                text="SRH", font=("Poppins", 20))
-
-        self.canvas.create_text(875, 105, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            900, 80, 1000, 130, outline="black", width=2, fill="white")
-        self.canvas.create_text(950, 105, fill="black",
-                                text="MI", font=("Poppins", 20))
-
-        # Team No 5 vs Team No 6
-        self.canvas.create_rectangle(
-            750, 150, 850, 200, outline="black", width=2, fill="white")
-        self.canvas.create_text(800, 175, fill="black",
-                                text="DC", font=("Poppins", 20))
-
-        self.canvas.create_text(870, 175, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            900, 150, 1000, 200, outline="black", width=2, fill="white")
-        self.canvas.create_text(950, 175, fill="black",
-                                text="KKR", font=("Poppins", 20))
-
-        # Team No 7 vs Team No 8
-        self.canvas.create_rectangle(
-            750, 220, 850, 270, outline="black", width=2, fill="white")
-        self.canvas.create_text(800, 245, fill="black",
-                                text="PBKS", font=("Poppins", 20))
-
-        self.canvas.create_text(875, 245, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            900, 220, 1000, 270, outline="black", width=2, fill="white")
-        self.canvas.create_text(950, 245, fill="black",
-                                text="RR", font=("Poppins", 20))
-
-        # ---------------- ROUND 3 Fixtures --------------
-
-        # Team No 1 vs Team No 2
-        self.canvas.create_rectangle(
-            250, 410, 350, 460, outline="black", width=2, fill="white")
-        self.canvas.create_text(300, 443, fill="black",
-                                text="MI", font=("Poppins", 20))
-
-        self.canvas.create_text(375, 435, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            400, 410, 500, 460, outline="black", width=2, fill="white")
-        self.canvas.create_text(450, 435, fill="black",
-                                text="CSK", font=("Poppins", 20))
-
-        # Team No 3 vs Team No 4
-        self.canvas.create_rectangle(
-            250, 480, 350, 530, outline="black", width=2, fill="white")
-        self.canvas.create_text(300, 505, fill="black",
-                                text="RCB", font=("Poppins", 20))
-
-        self.canvas.create_text(375, 505, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            400, 480, 500, 530, outline="black", width=2, fill="white")
-        self.canvas.create_text(450, 505, fill="black",
-                                text="KKR", font=("Poppins", 20))
-
-        # Team No 5 vs Team No 6
-        self.canvas.create_rectangle(
-            250, 550, 350, 600, outline="black", width=2, fill="white")
-        self.canvas.create_text(300, 575, fill="black",
-                                text="SRH", font=("Poppins", 20))
-
-        self.canvas.create_text(375, 575, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            400, 550, 500, 600, outline="black", width=2, fill="white")
-        self.canvas.create_text(450, 575, fill="black",
-                                text="RR", font=("Poppins", 20))
-
-        # Team No 7 vs Team No 8
-        self.canvas.create_rectangle(
-            250, 620, 350, 670, outline="black", width=2, fill="white")
-        self.canvas.create_text(300, 645, fill="black",
-                                text="DC", font=("Poppins", 20))
-
-        self.canvas.create_text(375, 645, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            400, 620, 500, 670, outline="black", width=2, fill="white")
-        self.canvas.create_text(450, 645, fill="black",
-                                text="PBKS", font=("Poppins", 20))
-
-        # ---------------- ROUND 4 Fixtures --------------
-
-        # Team No 1 vs Team No 2
-        self.canvas.create_rectangle(
-            750, 410, 850, 460, outline="black", width=2, fill="white")
-        self.canvas.create_text(800, 435, fill="black",
-                                text="KKR", font=("Poppins", 20))
-
-        self.canvas.create_text(875, 435, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            900, 410, 1000, 460, outline="black", width=2, fill="white")
-        self.canvas.create_text(950, 435, fill="black",
-                                text="CSK", font=("Poppins", 20))
-
-        # Team No 3 vs Team No 4
-        self.canvas.create_rectangle(
-            750, 480, 850, 530, outline="black", width=2, fill="white")
-        self.canvas.create_text(800, 505, fill="black",
-                                text="MI", font=("Poppins", 20))
-
-        self.canvas.create_text(875, 505, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            900, 480, 1000, 530, outline="black", width=2, fill="white")
-        self.canvas.create_text(950, 505, fill="black",
-                                text="RR", font=("Poppins", 20))
-
-        # Team No 5 vs Team No 6
-        self.canvas.create_rectangle(
-            750, 550, 850, 600, outline="black", width=2, fill="white")
-        self.canvas.create_text(800, 575, fill="black",
-                                text="RCB", font=("Poppins", 20))
-
-        self.canvas.create_text(870, 575, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            900, 550, 1000, 600, outline="black", width=2, fill="white")
-        self.canvas.create_text(950, 575, fill="black",
-                                text="PBKS", font=("Poppins", 20))
-
-        # Team No 7 vs Team No 8
-        self.canvas.create_rectangle(
-            750, 620, 850, 670, outline="black", width=2, fill="white")
-        self.canvas.create_text(800, 645, fill="black",
-                                text="SRH", font=("Poppins", 20))
-
-        self.canvas.create_text(875, 645, fill="red",
-                                text="vs", font=("Poppins", 15))
-
-        self.canvas.create_rectangle(
-            900, 620, 1000, 670, outline="black", width=2, fill="white")
-        self.canvas.create_text(950, 645, fill="black",
-                                text="DC", font=("Poppins", 20))
-
-        self.canvas.pack(fill=BOTH, expand=True)
-
 
 if __name__ == "__main__":
     master = Tk()
+    scrollbar = Scrollbar(master)
+    scrollbar.pack(side=RIGHT, fill=Y)
     fixture = Fixture(master)
 
     master.title('Tournament Fixtures')
