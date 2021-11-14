@@ -1,5 +1,6 @@
 # Fixture generation code
 
+
 def arr_rotate(arr):
     x = []
     x.append(arr[-2])
@@ -9,22 +10,32 @@ def arr_rotate(arr):
     return x
 
 
+tL = []
+
+
 def schedule(team_list):
     l = len(team_list)
     rotate = team_list
-    team_map = {1: 'DC', 2: 'PBKS', 3: 'RR', 4: 'KKR',
-                5: 'MI', 6: 'RCB', 7: 'SRH', 8: 'CSK'}
+    team_map = {}
+    teams = list(map(str, input("Enter ").split()))
+    for i in range(l):
+        team_map[i+1] = teams[i]
     for i in range(l-1):
         rotate = arr_rotate(rotate)
         left = 0
         right = l-1
         print("-----Round ", i+1, " Fixtures-----")
         while(left < right):
+            tL.append([team_map[rotate[left]], team_map[rotate[right]]])
+            # print(tL)
             print("Team ", team_map[rotate[left]],
                   " Plays Team ", team_map[rotate[right]])
             left += 1
             right -= 1
+    # sendData()
 
 
-l = list(map(int, input("Enter list ").split()))
-schedule(l)
+def sendData():
+    l = range(1, 9)
+    schedule(l)
+    return tL
