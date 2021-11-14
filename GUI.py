@@ -1,9 +1,11 @@
 from tkinter import *
+import tkinter as tk
+from tkinter.font import BOLD, ITALIC
 from tkinter.ttk import *
 
 from backend import sendData, schedule
 l = sendData()
-print(l)
+# print(l)
 
 
 class Fixture:
@@ -15,51 +17,70 @@ class Fixture:
         # xxxxxxxxxxxxxxxxxxxxx ROW 1 xxxxxxxxxxxxxxxxxxxxx
 
         # ------------ ROUND 1 Fixtures ------------
-        self.createFixtures(250, 10, 400, 10, l[0][0], l[0][1])  # 1 vs 2
-        self.createFixtures(250, 80, 400, 80, l[1][0], l[1][1])  # 3 vs 4
-        self.createFixtures(250, 150, 400, 150, l[2][0], l[2][1])  # 5 vs 6
-        self.createFixtures(250, 220, 400, 220, l[3][0], l[3][1])  # 7 vs 8
+        Team_one = tk.Label(master, text="Round One", width=10,
+                            height=2, fg="Black", font=("Arial", 15, BOLD))
+        Team_one.place(x=220, y=40)
+        self.createFixtures(150, 100, 300, 100, l[0][0], l[0][1])  # 1 vs 2
+        self.createFixtures(150, 170, 300, 170, l[1][0], l[1][1])  # 3 vs 4
+        self.createFixtures(150, 240, 300, 240, l[2][0], l[2][1])  # 5 vs 6
+        self.createFixtures(150, 310, 300, 310, l[3][0], l[3][1])  # 7 vs 8
 
         # ------------ ROUND 2 Fixtures ------------
-        self.createFixtures(750, 10, 900, 10, l[4][0], l[4][1])  # 1 vs 2
-        self.createFixtures(750, 80, 900, 80, l[5][0], l[5][1])  # 3 vs 4
-        self.createFixtures(750, 150, 900, 150, l[6][0], l[6][1])  # 5 vs 6
-        self.createFixtures(750, 220, 900, 220, l[7][0], l[7][1])  # 7 vs 8
+        Team_two = tk.Label(master, text="Round Two", width=10,
+                            height=2, fg="Black", font=("Arial", 15, BOLD))
+        Team_two.place(x=620, y=40)
+        self.createFixtures(560, 170, 710, 170, l[5][0], l[5][1])  # 3 vs 4
+        self.createFixtures(560, 240, 710, 240, l[6][0], l[6][1])  # 5 vs 6
+        self.createFixtures(560, 100, 710, 100, l[4][0], l[4][1])  # 1 vs 2
+        self.createFixtures(560, 310, 710, 310, l[7][0], l[7][1])  # 7 vs 8
 
         # ------------ ROUND 3 Fixtures ------------
-        self.createFixtures(1250, 10, 1400, 10, l[8][0], l[8][1])  # 1 VS 2
-        self.createFixtures(1250, 80, 1400, 80, l[9][0], l[9][1])  # 3 VS 4
-        self.createFixtures(1250, 150, 1400, 150, l[10][0], l[10][1])  # 5 VS 6
-        self.createFixtures(1250, 220, 1400, 220, l[11][0], l[11][1])  # 7 VS 8
+        Team_three = tk.Label(master, text="Round Three", width=10,
+                              height=2, fg="Black", font=("Arial", 15, BOLD))
+        Team_three.place(x=1060, y=40)
+        self.createFixtures(990, 100, 1140, 100, l[8][0], l[8][1])  # 1 VS 2
+        self.createFixtures(990, 170, 1140, 170, l[9][0], l[9][1])  # 3 VS 4
+        self.createFixtures(990, 240, 1140, 240, l[10][0], l[10][1])  # 5 VS 6
+        self.createFixtures(990, 310, 1140, 310, l[11][0], l[11][1])  # 7 VS 8
+
+        # ------------ ROUND 4 Fixtures ------------
+        Team_four = tk.Label(master, text="Round Four", width=10,
+                             height=2, fg="Black", font=("Arial", 15, BOLD))
+        Team_four.place(x=1420, y=40)
+        self.createFixtures(1350, 100, 1500, 100, l[12][0], l[12][1])  # 1 VS 2
+        self.createFixtures(1350, 170, 1500, 170, l[13][0], l[13][1])  # 3 VS 4
+        self.createFixtures(1350, 240, 1500, 240, l[14][0], l[14][1])  # 5 VS 6
+        self.createFixtures(1350, 310, 1500, 310, l[15][0], l[15][1])  # 7 VS 8
 
         # xxxxxxxxxxxxxxxxxxxxx ROW 2 xxxxxxxxxxxxxxxxxxxxx
 
-        # ------------ ROUND 4 Fixtures ------------
-        self.createFixtures(250, 360, 400, 360, l[12][0], l[12][1])  # 1 VS 2
-        self.createFixtures(250, 430, 400, 430, l[13][0], l[13][1])  # 3 VS 4
-        self.createFixtures(250, 500, 400, 500, l[14][0], l[14][1])  # 5 VS 6
-        self.createFixtures(250, 570, 400, 570, l[15][0], l[15][1])  # 7 VS 8
-
         # ------------ ROUND 5 Fixtures ------------s
-        self.createFixtures(750, 360, 900, 360, l[16][0], l[16][1])  # 1 VS 2
-        self.createFixtures(750, 430, 900, 430, l[17][0], l[17][1])  # 3 VS 4
-        self.createFixtures(750, 500, 900, 500, l[18][0], l[18][1])  # 5 VS 6
-        self.createFixtures(750, 570, 900, 570, l[19][0], l[19][1])  # 7 VS 8
+        Team_five = tk.Label(master, text="Round Five", width=10,
+                             height=2, fg="Black", font=("Arial", 15, BOLD))
+        Team_five.place(x=380, y=440)
+        self.createFixtures(300, 500, 450, 500, l[16][0], l[16][1])  # 1 VS 2
+        self.createFixtures(300, 570, 450, 570, l[17][0], l[17][1])  # 3 VS 4
+        self.createFixtures(300, 640, 450, 640, l[18][0], l[18][1])  # 5 VS 6
+        self.createFixtures(300, 710, 450, 710, l[19][0], l[19][1])  # 7 VS 8
 
         # ------------ ROUND 6 Fixtures ------------s
-        self.createFixtures(1250, 360, 1400, 360, l[20][0], l[20][1])  # 1 VS 2
-        self.createFixtures(1250, 430, 1400, 430, l[21][0], l[21][1])  # 3 VS 4
-        self.createFixtures(1250, 500, 1400, 500, l[22][0], l[22][1])  # 5 VS 6
-        self.createFixtures(1250, 570, 1400, 570, l[23][0], l[23][1])  # 7 VS 8
-
-        # xxxxxxxxxxxxxxxxxxxxx ROW 3 xxxxxxxxxxxxxxxxxxxxx
+        Team_six = tk.Label(master, text="Round Six", width=10,
+                            height=2, fg="Black", font=("Arial", 15, BOLD))
+        Team_six.place(x=770, y=440)
+        self.createFixtures(700, 500, 850, 500, l[20][0], l[20][1])  # 1 VS 2
+        self.createFixtures(700, 570, 850, 570, l[21][0], l[21][1])  # 3 VS 4
+        self.createFixtures(700, 640, 850, 640, l[22][0], l[22][1])  # 5 VS 6
+        self.createFixtures(700, 710, 850, 710, l[23][0], l[23][1])  # 7 VS 8
 
         # ------------ ROUND 7 Fixtures ------------
-        self.createFixtures(750, 710, 900, 710, l[24][0], l[24][1])  # 1 VS 2
-        self.createFixtures(750, 780, 900, 780, l[25][0], l[25][1])  # 3 VS 4
-        self.createFixtures(750, 850, 900, 850, l[26][0], l[26][1])  # 5 VS 6
-        self.createFixtures(750, 920, 900, 920, l[27][0], l[27][1])  # 7 VS 8
 
+        Team_seven = tk.Label(master, text="Round Seven", width=10,
+                              height=2, fg="Black", font=("Arial", 15, BOLD))
+        Team_seven.place(x=1160, y=440)
+        self.createFixtures(1100, 500, 1250, 500, l[24][0], l[24][1])  # 1 VS 2
+        self.createFixtures(1100, 570, 1250, 570, l[25][0], l[25][1])  # 3 VS 4
+        self.createFixtures(1100, 640, 1250, 640, l[26][0], l[26][1])  # 5 VS 6
+        self.createFixtures(1100, 710, 1250, 710, l[27][0], l[27][1])  # 7 VS 8
         self.canvas.pack(fill=BOTH, expand=True)
 
     def createFixtures(self, startX1, startY1, startX2, startY2, team1, team2):
